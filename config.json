@@ -1,0 +1,12 @@
+{
+    "port": "8080",
+    "token": ,
+    "fastifyOptions": {
+        "logger": true,
+        "trustProxy": true
+    },
+    "redisOptions": {
+        "host": "127.0.0.1"
+    },
+    "redisKeyPrefix": "smart-ip-lookup"
+}

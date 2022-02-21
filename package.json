@@ -1,0 +1,27 @@
+{
+  "name": "smart-ip-lookup",
+  "version": "1.0.0",
+  "repository": "https://github.com/dolsem/smart-ip-lookup",
+  "author": "Denis <dols3m@gmail.com>",
+  "scripts": {
+    "build:dev": "tsc --watch",
+    "build": "tsc",
+    "prestart:dev": "npm run redis",
+    "start:dev": "NODE_ENV=development nodemon ./dist/index",
+    "start": "NODE_ENV=production node ./dist/index",
+    "redis": "docker start smart-ip-lookup-redis 2>/dev/null || docker run --name smart-ip-lookup-redis -p 6379:6379 -d redis",
+    "ngrok": "ngrok http $(node -e 'console.log(require(\"./config.json\").port)')"
+  },
+  "dependencies": {
+    "fastify": "^3.27.2",
+    "fastify-redis": "^4.3.3",
+    "undici": "^4.14.1"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.28.8",
+    "@types/node": "^17.0.18",
+    "ngrok": "^4.3.0",
+    "typescript": "^4.5.5"
+  },
+  "license": "MIT"
+}
